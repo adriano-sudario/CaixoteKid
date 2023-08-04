@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 8940824189075777726}
   - component: {fileID: 8405014096529966687}
   - component: {fileID: 799713253}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: KidCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,10 +337,10 @@ Animator:
   m_GameObject: {fileID: 2768334930639233860}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 819e1ea1fc3376747aa615ca0114ae76, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02d212da94126524a9d7b2ec39e8f8bf, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -361,6 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  runningSpeedBoost: 5
   jumpForce: 4
 --- !u!136 &8405014096529966687
 CapsuleCollider:

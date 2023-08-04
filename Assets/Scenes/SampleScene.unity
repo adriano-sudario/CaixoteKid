@@ -395,14 +395,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: KidCharacter
       objectReference: {fileID: 0}
-    - target: {fileID: 9131685868922010669, guid: 5c5d85b1b921a2347a54f054541e7a49, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 02d212da94126524a9d7b2ec39e8f8bf, type: 2}
-    - target: {fileID: 9131685868922010669, guid: 5c5d85b1b921a2347a54f054541e7a49, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c5d85b1b921a2347a54f054541e7a49, type: 3}
 --- !u!1 &963194225

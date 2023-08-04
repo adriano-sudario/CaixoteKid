@@ -1,9 +1,9 @@
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class KidController : MonoBehaviour
 {
     public float speed = 10;
+    public float runningSpeedBoost = 5;
     public float jumpForce = 10;
 
     private readonly float groundDistanceTolerance = .15f;
@@ -11,23 +11,21 @@ public class KidController : MonoBehaviour
     private Vector3 direction;
     private Rigidbody rigidBody;
     private Animator animator;
-    private float colliderHeight;
     private float rotationSpeed = 720;
     private CapsuleCollider capsuleCollider;
     private bool shouldJump;
     private bool isHoldingShift;
 
     private bool IsOnGround => Physics.Raycast(
-            transform.position + (transform.up * colliderHeight * .5f),
+            capsuleCollider.bounds.center,
             -transform.up,
-            (colliderHeight * .5f) + groundDistanceTolerance);
+            (capsuleCollider.height * .5f) + groundDistanceTolerance);
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
-        colliderHeight = capsuleCollider.height;
     }
 
     void Update()
@@ -51,7 +49,7 @@ public class KidController : MonoBehaviour
         {
             animator.SetBool("IsRunning", isHoldingShift);
             var isRunning = Input.GetKey(KeyCode.LeftShift);
-            transform.Translate(direction * (isRunning ? speed + 5 : speed) * Time.deltaTime, Space.World);
+            transform.Translate(direction * (isRunning ? speed + runningSpeedBoost : speed) * Time.deltaTime, Space.World);
 
             var toRotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
